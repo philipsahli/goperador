@@ -1,0 +1,7 @@
+apiVersion: app.example.com/v1alpha1
+kind: GontadorService
+metadata:
+  name: example-gontadorservice
+spec:
+  # Add fields here
+  size: 3
