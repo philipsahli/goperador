@@ -4,16 +4,11 @@ metadata:
   name: example-gontadorservice
 spec:
   # Add fields here
-  containers:
-    - name: busybox
-      image: busybox:1.25
-      command:
-        - /bin/sh
-        - -ec
-        - |
-          if [ -f /persistent/log ]; then
-            echo -n "Found old state starting at "; head -n1 /persistent/log
-          else
-            echo -n "Starting with a fresh state"
-          fi
-          while sleep 5; do date | tee -a /persistent/log; done
+  EnvName: dev
+  # InstanceName: demo-stao
+  ServiceHost: spec.NodeName
+  ServicePort: "3000"
+  ServiceInstance: metadata.name
+  MetricHost: 192.168.1.2
+  MetricPort: "2003"
+  RedisEndpoint: 192.168.1.2:6379 

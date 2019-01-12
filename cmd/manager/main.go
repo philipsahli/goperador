@@ -18,6 +18,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/runtime/signals"
+
+	routev1 "github.com/openshift/api/route/v1"
 )
 
 var log = logf.Log.WithName("cmd")
@@ -29,6 +31,7 @@ func printVersion() {
 }
 
 func main() {
+
 	flag.Parse()
 
 	// The logger instantiated here can be changed to any logger
@@ -80,6 +83,12 @@ func main() {
 
 	// Setup all Controllers
 	if err := controller.AddToManager(mgr); err != nil {
+		log.Error(err, "")
+		os.Exit(1)
+	}
+
+	// Setup 3rd party
+	if err := routev1.AddToScheme(mgr.GetScheme()); err != nil {
 		log.Error(err, "")
 		os.Exit(1)
 	}

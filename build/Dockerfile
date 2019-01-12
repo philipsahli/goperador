@@ -4,4 +4,4 @@ RUN apk upgrade --update --no-cache
 
 USER nobody
 
-ADD build/_output/bin/operator /usr/local/bin/operator
+ADD build/_output/bin/goperador /usr/local/bin/goperador

@@ -9,6 +9,14 @@ import (
 
 // GontadorServiceSpec defines the desired state of GontadorService
 type GontadorServiceSpec struct {
+	EnvName         string `json:",inline"`
+	InstanceName    string `json:",inline"`
+	ServiceHost     string `json:",inline"`
+	ServicePort     string `json:",inline"`
+	ServiceInstance string `json:",inline"`
+	MetricHost      string `json:",inline"`
+	MetricPort      string `json:",inline"`
+	RedisEndpoint   string `json:",inline"`
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
 }
@@ -17,6 +25,8 @@ type GontadorServiceSpec struct {
 type GontadorServiceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
+	PodNames  []string
+	RouteHost string
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
