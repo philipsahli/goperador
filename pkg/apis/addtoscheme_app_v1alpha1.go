@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"github.com/philipsahli/goperador/operator/pkg/apis/app/v1alpha1"
+	"github.com/philipsahli/goperador/pkg/apis/app/v1alpha1"
 )
 
 func init() {

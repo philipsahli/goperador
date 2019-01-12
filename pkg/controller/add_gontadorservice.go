@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/philipsahli/goperador/operator/pkg/controller/gontadorservice"
+	"github.com/philipsahli/goperador/pkg/controller/gontadorservice"
 )
 
 func init() {
